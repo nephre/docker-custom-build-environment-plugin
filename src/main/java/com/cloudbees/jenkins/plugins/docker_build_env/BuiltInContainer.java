@@ -52,6 +52,16 @@ public class BuiltInContainer implements BuildBadgeAction, EnvironmentContributi
         return image;
     }
 
+    public String getImageName() {
+        if (image == null) {
+            return "";
+        }
+        if (image.indexOf('/') < 0) {
+            return image;
+        }
+        return image.split("/")[1];
+    }
+
     public String getDisplayName() {
         return "built inside docker container";
     }
